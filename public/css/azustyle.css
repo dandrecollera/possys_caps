@@ -1,0 +1,29 @@
+:root {
+    --red: #ae1504;
+}
+
+.dbcover {
+    object-fit: cover;
+}
+
+.side-text {
+    font-size: 14px;
+    color: rgb(109, 109, 109);
+}
+
+.logo-text {
+    font-size: 16px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+.content-container {
+    margin-top: 120px;
+}
+
+@media (max-width: 375px) {
+    .logo-text {
+        font-size: 12px;
+    }
+}
