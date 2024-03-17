@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', env('WEB_TITLE'))</title>
+    <title>{{ env('WEB_TITLE', 'Fetch Error ENV') }}</title>
 
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <link type="image/ico" href="{{ asset('favicon/favicon.ico') }}" rel="icon">
@@ -36,6 +36,16 @@
             align-items: center;
             background-color: #ececec;
         }
+
+        .loginbutton {
+            background-color: #92140c;
+            color: white;
+        }
+
+        .loginbutton:hover {
+            background-color: #c71e1e;
+            color: white;
+        }
     </style>
 
 </head>
@@ -60,8 +70,8 @@
                 <form method="POST" action="/loginProcess">
                     @csrf
                     <div class="form-outline mt-4 mb-3" style="min-width:200px">
-                        <input class="form-control" id="email" name="email" type="text" required />
-                        <label class="form-label" for="username">Email</label>
+                        <input class="form-control" id="username" name="username" type="text" required />
+                        <label class="form-label" for="username">Username</label>
                     </div>
 
                     <div class="form-outline mb-3" style="min-width:200px">
@@ -70,7 +80,7 @@
                         <label class="form-label" for="password">Password</label>
                     </div>
 
-                    <button class="btn btn-primary w-100" type="submit">Login</button>
+                    <button class="btn loginbutton w-100" type="submit">Login</button>
                 </form>
 
             </div>

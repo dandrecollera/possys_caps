@@ -1,7 +1,7 @@
 @extends('templates.mastertemplate')
 
 @section('linkcss')
-    <link href="{{ asset('css/azusidenavv2.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/azusidenavv2.css') }}?v=1" rel="stylesheet">
 @endsection
 
 

@@ -85,7 +85,7 @@
     margin-right: 6px;
 }
 .icon {
-    font-size: 28px;
+    font-size: 24px;
 }
 #sidebar .icon-right {
     margin-left: auto;
@@ -151,6 +151,9 @@
 }
 #sidebar.hide:hover .n3 {
     transform: translate(-105px, 0px);
+}
+#sidebar.hide:hover .n4 {
+    transform: translate(-114px, 0px);
 }
 
 #sidebar.hide .divider {

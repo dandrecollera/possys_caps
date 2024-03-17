@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', [LoginController::class, 'loginScreen'])->name('loginScreen');
+Route::post('loginProcess', [LoginController::class, 'loginProcess'])->name('loginProcess');
 
 
-Route::get('dashboard', function(){
-    return view('dashboard');
+
+Route::group(['middleware' => 'axuauth'], function(){
+    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
 });
