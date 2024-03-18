@@ -22,5 +22,7 @@ Route::post('loginProcess', [LoginController::class, 'loginProcess'])->name('log
 
 Route::group(['middleware' => 'axuauth'], function(){
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-
+    Route::get('settings', [AdminController::class, 'settings'])->name('settings');
+    Route::post('savesettings', [AdminController::class, 'savesettings'])->name('savesettings');
+    Route::get('systemdefault', [AdminController::class, 'systemdefault'])->name('systemdefault');
 });

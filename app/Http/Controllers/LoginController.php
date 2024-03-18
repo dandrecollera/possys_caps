@@ -45,18 +45,18 @@ class LoginController extends Controller
         }
 
         $userkey = [
-            $userdata->id,
-            $userdata->type,
-            $userdata->username,
-            $userdata->password,
-            $userdata->branch,
-            $userdata->status,
-            $userdata->firstname,
-            $userdata->middlename,
-            $userdata->lastname,
-            $userdata->address,
-            $userdata->contact,
-            date('ymdHis')
+            $userdata->id, //0
+            $userdata->type, //1
+            $userdata->username, //2
+            $userdata->password, //3
+            $userdata->branch, //4
+            $userdata->status, //5
+            $userdata->firstname, //6
+            $userdata->middlename, //7
+            $userdata->lastname, //8
+            $userdata->address, //9
+            $userdata->contact, //10
+            date('ymdHis') //11
         ];
 
         $userid = encrypt(implode( ',', $userkey,));

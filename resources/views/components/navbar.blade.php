@@ -4,9 +4,15 @@
 
         <img id="navbarlogosub" src="{{ asset('img/logo.png') }}" alt="logo">
         <div class="btn-group shadow-0 d-none d-lg-block">
-            <i class="fas fa-table-columns fa-fw me-3"></i>
-            <i class="fas fa-table-columns fa-fw me-3"></i>
-            <i class="fas fa-table-columns fa-fw me-3"></i>
+            <a href="#" style="text-decoration: none; color: black">
+                <i class="fa-solid fa-bell me-3"></i>
+            </a>
+            <a href="#" style="text-decoration: none; color: black">
+                <i class="fa-solid fa-message me-3"></i>
+            </a>
+            <a href="/settings" style="text-decoration: none; color: black">
+                <i class="fa-solid fa-gear me-3"></i>
+            </a>
             <a class="dropdown-toggle hidden-arrow pe-3" id="dropdownMenuButton" data-mdb-toggle="dropdown" type="button">
                 @include('components.imagename')
             </a>

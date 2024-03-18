@@ -17,7 +17,7 @@
     @yield('linkcss')
 </head>
 
-<body>
+<body style="background-color: rgb(248, 248, 248)">
 
     @yield('body')
 

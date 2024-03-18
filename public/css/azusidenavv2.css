@@ -54,7 +54,7 @@
     padding-left: 10px;
     text-transform: uppercase;
     font-weight: 700;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 #sidebar.hide:hover {
@@ -64,7 +64,7 @@
     display: flex;
     align-items: center;
     height: 150px;
-
+    object-fit: cover;
     color: var(--dark-red);
     z-index: 100;
     transition: all 0.3s ease;
@@ -201,7 +201,7 @@
 }
 
 .contentinit {
-    padding-left: calc(var(--init) + 10px);
+    padding-left: calc(var(--init) + 0px);
     padding-top: 80px;
     transition: all 0.3s ease;
 }

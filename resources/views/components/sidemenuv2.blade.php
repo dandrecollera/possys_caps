@@ -2,15 +2,21 @@
     <div id="closesidenav" style="position: absolute; right: 20px; top: 20px; font-size: 30px">
         <i class="fa-solid fa-xmark"></i>
     </div>
+
+    @php
+        $logo = DB::table('systemsettings')->where('type', 'logo')->first();
+        $title = DB::table('systemsettings')->where('type', 'title')->first();
+    @endphp
+
     <a class="logo" href="#">
-        <img src="{{ asset('img/logo.png') }}" alt="logo">
-        <h4>Sales and Inventory<br>Management System</h4>
+        <img src="{{ $logo->input }}" alt="logo">
+        <h4 style="width: 200px">{{ $title->input }}</h4>
     </a>
 
 
     <ul class="side-menu">
         <li class="divider n1" data-text="home">HOME</li>
-        <li><a class="" href="#"><i class="fa-solid fa-border-all icon"></i>
+        <li><a class="" href="dashboard"><i class="fa-solid fa-border-all icon"></i>
                 <div class="sideMenuText">Dashboard</div>
             </a></li>
         <li class="divider n2" data-text="main">Main</li>
