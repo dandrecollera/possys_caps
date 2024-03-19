@@ -1,3 +1,7 @@
+@php
+    $bgColor = 'rgb(248, 248, 248)'; // Set the desired background color
+@endphp
+
 @extends('templates.mastertemplate')
 
 @section('linkcss')
@@ -18,6 +22,8 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
+            $('[data-toggle="popover"]').popover();
+
             const sidebartrigger = $('#sidebartrigger');
             const sidebar = $('#sidebar');
             const navbar = $('#main-navbar');
@@ -28,10 +34,23 @@
                 }
             }
 
+            checkScreenSize();
+
             sidebartrigger.on('click', function() {
                 sidebar.toggleClass('hide');
                 navbar.toggleClass('navbarend');
                 $('#mastercontent').toggleClass('contentend');
+
+                if (sidebar.hasClass('hide')) {
+                    if ($('#reportnav').hasClass('active')) {
+                        $('#reportnav').toggleClass('active');
+                        $('#reportnavsub').toggleClass('show');
+                    }
+                    if ($('#productnav').hasClass('active')) {
+                        $('#productnav').toggleClass('active');
+                        $('#productnavsub').toggleClass('show');
+                    }
+                }
             });
 
             $('#productnav').on('click', function() {
@@ -52,7 +71,7 @@
                 sidebar.toggleClass('togglersidenav');
             })
 
-            checkScreenSize();
+
         });
     </script>
 @endpush

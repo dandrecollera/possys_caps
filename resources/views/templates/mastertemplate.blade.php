@@ -9,15 +9,30 @@
 
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/azustyle.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/azustyle.css') }}?v=3" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/55faa7e024.js" crossorigin="anonymous"></script>
 
+    <style>
+        ::-webkit-scrollbar {
+            width: 2px;
+            height: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.0);
+        }
+    </style>
 
     @yield('linkcss')
 </head>
 
-<body style="background-color: rgb(248, 248, 248)">
+<body style="background-color: {{ $bgColor }};">
 
     @yield('body')
 

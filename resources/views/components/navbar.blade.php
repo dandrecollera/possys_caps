@@ -1,8 +1,13 @@
+@php
+    $logo = DB::table('systemsettings')->where('type', 'logo')->first();
+    $title = DB::table('systemsettings')->where('type', 'title')->first();
+@endphp
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top navbarinit" id="main-navbar">
     <div class="container-fluid  ">
         <i class="fa-solid fa-bars fa-lg" id="sidebartrigger" style="cursor: pointer;"></i>
 
-        <img id="navbarlogosub" src="{{ asset('img/logo.png') }}" alt="logo">
+        <img id="navbarlogosub" src="{{ $logo->input }}" alt="logo" style="max-height: 95px;">
         <div class="btn-group shadow-0 d-none d-lg-block">
             <a href="#" style="text-decoration: none; color: black">
                 <i class="fa-solid fa-bell me-3"></i>

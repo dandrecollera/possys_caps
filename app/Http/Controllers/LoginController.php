@@ -49,7 +49,7 @@ class LoginController extends Controller
             $userdata->type, //1
             $userdata->username, //2
             $userdata->password, //3
-            $userdata->branch, //4
+            $userdata->branchid, //4
             $userdata->status, //5
             $userdata->firstname, //6
             $userdata->middlename, //7

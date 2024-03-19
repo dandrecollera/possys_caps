@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('useraccounts', function (Blueprint $table) {
+        Schema::create('branches', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username');
-            $table->string('password');
-            $table->string('type');
-            $table->unsignedBigInteger('branchid')->nullable();
+            $table->string('name');
+            $table->text('address');
+            $table->text('description');
             $table->string('status')->default('active');
             $table->timestamps();
-
-            $table->foreign('branchid')->references('id')->on('branches')->onDelete('cascade');
-
         });
     }
 
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('useraccounts');
+        Schema::dropIfExists('branches');
     }
 };

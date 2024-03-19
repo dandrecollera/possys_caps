@@ -46,6 +46,11 @@
             background-color: #c71e1e;
             color: white;
         }
+
+        .loginbutton:active {
+            background-color: #410c08 !important;
+            color: white !important;
+        }
     </style>
 
 </head>
