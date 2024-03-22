@@ -14,12 +14,10 @@ class BranchesTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('branches')->delete();
-        
+
         \DB::table('branches')->insert(array (
-            0 => 
+            0 =>
             array (
                 'address' => 'Tanay',
                 'created_at' => '2024-03-19 08:57:53',
@@ -30,7 +28,5 @@ class BranchesTableSeeder extends Seeder
                 'updated_at' => '2024-03-19 08:57:53',
             ),
         ));
-        
-        
     }
 }

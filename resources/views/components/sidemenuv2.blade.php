@@ -6,6 +6,7 @@
     @php
         $logo = DB::table('systemsettings')->where('type', 'logo')->first();
         $title = DB::table('systemsettings')->where('type', 'title')->first();
+        $path = request()->path();
     @endphp
 
     <a class="logo" href="#">
@@ -69,8 +70,8 @@
             </ul>
         </li>
         <li class="divider n4" data-text="users">USERS</li>
-        <li><a class="" href="#"><i class="fa-solid fa-users icon"></i>
-                <div class="sideMenuText">Accounts</div>
+        <li><a class="{{ $path == 'accounts' ? 'active-selected' : '' }}" href="accounts"><i class="fa-solid fa-users icon "></i>
+                <div class="sideMenuText ">Accounts</div>
             </a></li>
     </ul>
 </section>

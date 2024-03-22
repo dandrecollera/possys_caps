@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('type');
             $table->unsignedBigInteger('branchid')->nullable();
             $table->string('status')->default('active');
+            $table->dateTime('last_active')->nullable();
             $table->timestamps();
 
             $table->foreign('branchid')->references('id')->on('branches')->onDelete('cascade');

@@ -22,8 +22,6 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('[data-toggle="popover"]').popover();
-
             const sidebartrigger = $('#sidebartrigger');
             const sidebar = $('#sidebar');
             const navbar = $('#main-navbar');
@@ -71,6 +69,19 @@
                 sidebar.toggleClass('togglersidenav');
             })
 
+
+            sidebar.on('mouseleave', function() {
+                if (sidebar.hasClass('hide')) {
+                    if ($('#reportnav').hasClass('active')) {
+                        $('#reportnav').toggleClass('active');
+                        $('#reportnavsub').toggleClass('show');
+                    }
+                    if ($('#productnav').hasClass('active')) {
+                        $('#productnav').toggleClass('active');
+                        $('#productnavsub').toggleClass('show');
+                    }
+                }
+            })
 
         });
     </script>

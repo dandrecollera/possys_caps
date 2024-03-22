@@ -44,6 +44,13 @@ class LoginController extends Controller
             die();
         }
 
+        DB::table('useraccounts')
+            ->where('username', $input['username'])
+            ->where('password', md5($input['password']))
+            ->update([
+                'last_active' => Carbon::now()->toDateTimeString(),
+            ]);
+
         $userkey = [
             $userdata->id, //0
             $userdata->type, //1
