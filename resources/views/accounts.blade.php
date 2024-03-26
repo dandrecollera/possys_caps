@@ -26,7 +26,7 @@
             </div>
         @endif
 
-        <div class="card mt-3">
+        <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Account Management</h3>
 

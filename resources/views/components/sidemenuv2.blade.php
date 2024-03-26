@@ -15,6 +15,22 @@
     </a>
 
 
+    <div class="w-100 py-3 d-block d-lg-none">
+        <center>
+            <div class="btn-group shadow-0 d-block d-lg-block">
+                @include('components.submenu')
+                <a class="dropdown-toggle hidden-arrow pe-3" id="dropdownMenuButton" data-mdb-toggle="dropdown" type="button">
+                    @include('components.imagename')
+                </a>
+                <ul class="dropdown-menu">
+                    @include('components.usermenu')
+                </ul>
+            </div>
+
+        </center>
+    </div>
+
+
     <ul class="side-menu">
         <li class="divider n1" data-text="home">HOME</li>
         <li><a class="{{ $path == 'dashboard' ? 'active-selected' : '' }}" href="dashboard"><i class="fa-solid fa-border-all icon"></i>
@@ -74,4 +90,6 @@
                 <div class="sideMenuText ">Accounts</div>
             </a></li>
     </ul>
+
+
 </section>

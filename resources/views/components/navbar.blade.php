@@ -9,15 +9,7 @@
 
         <img id="navbarlogosub" src="{{ $logo->input }}" alt="logo" style="max-height: 95px;">
         <div class="btn-group shadow-0 d-none d-lg-block">
-            <a href="#" style="text-decoration: none; color: black">
-                <i class="fa-solid fa-bell me-3"></i>
-            </a>
-            <a href="#" style="text-decoration: none; color: black">
-                <i class="fa-solid fa-message me-3"></i>
-            </a>
-            <a href="/settings" style="text-decoration: none; color: black">
-                <i class="fa-solid fa-gear me-3"></i>
-            </a>
+            @include('components.submenu')
             <a class="dropdown-toggle hidden-arrow pe-3" id="dropdownMenuButton" data-mdb-toggle="dropdown" type="button">
                 @include('components.imagename')
             </a>

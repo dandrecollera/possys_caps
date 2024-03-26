@@ -62,7 +62,7 @@
 
             <div class="card-body p-5">
                 <center>
-                    <img class="mb-3" src="{{ asset('img/Logo.png') }}" alt="logo" height="130">
+                    <img class="mb-3" src="{{ asset('img/logo.png') }}" alt="logo" height="130">
                     <h5 class="mb-3">Sign In</h5>
                 </center>
 
