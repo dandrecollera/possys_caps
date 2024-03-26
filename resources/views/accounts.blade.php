@@ -109,31 +109,29 @@
                             <thead>
                                 <tr>
                                     <th scope="col">
+
+                                    </th>
+                                    <th scope="col">
                                         <span class="{{ $orderbylist[$sort]['display'] == 'Default' ? 'main-primary' : '' }}"><strong>ID</strong></span>
                                     </th>
                                     <th scope="col">
                                         <span class="{{ $orderbylist[$sort]['display'] == 'Username' ? 'main-primary' : '' }}"><strong>Username</strong></span>
                                     </th>
                                     <th scope="col">
-                                        <span class="{{ $orderbylist[$sort]['display'] == 'First Name' ? 'main-primary' : '' }}"><strong>First Name</strong></span>
-                                    </th>
-                                    <th scope="col">
-                                        <span class="{{ $orderbylist[$sort]['display'] == 'Middle Name' ? 'main-primary' : '' }}"><strong>Middle Name</strong></span>
-                                    </th>
-                                    <th scope="col">
-                                        <span class="{{ $orderbylist[$sort]['display'] == 'Last Name' ? 'main-primary' : '' }}"><strong>Last Name</strong></span>
+                                        <span
+                                            class="{{ $orderbylist[$sort]['display'] == 'First Name' || $orderbylist[$sort]['display'] == 'Middle Name' || $orderbylist[$sort]['display'] == 'Last Name' ? 'main-primary' : '' }}"><strong>Name</strong></span>
                                     </th>
                                     <th scope="col">
                                         <span class="{{ $orderbylist[$sort]['display'] == 'Type' ? 'main-primary' : '' }}"><strong>Type</strong></span>
-                                    </th>
-                                    <th scope="col">
-                                        <span class="{{ $orderbylist[$sort]['display'] == 'Status' ? 'main-primary' : '' }}"><strong>Status</strong></span>
                                     </th>
                                     <th scope="col">
                                         <span class="{{ $orderbylist[$sort]['display'] == 'Branch' ? 'main-primary' : '' }}"><strong>Branch</strong></span>
                                     </th>
                                     <th scope="col">
                                         <span class="{{ $orderbylist[$sort]['display'] == 'Last Active' ? 'main-primary' : '' }}"><strong>Last Active</strong></span>
+                                    </th>
+                                    <th scope="col">
+                                        <span class="{{ $orderbylist[$sort]['display'] == 'Status' ? 'main-primary' : '' }}"><strong>Status</strong></span>
                                     </th>
                                     <th scope="col">
                                         <strong>Actions</strong>
@@ -143,15 +141,15 @@
                             <tbody>
                                 @foreach ($dbresult as $dbr)
                                     <tr class="{{ $dbr->status == 'inactive' ? 'table-danger' : '' }}">
+                                        <th scope="row"><strong><img class="rounded-circle me-lg-0 me-2 dpcover" src="{{ asset('/storage/images/' . $dbr->photo) }}" alt="" height="40" width="40"
+                                                    loading="lazy" /></strong></th>
                                         <th scope="row">{{ $dbr->id }}</th>
                                         <td>{{ $dbr->username }}</td>
-                                        <td>{{ $dbr->firstname }}</td>
-                                        <td>{{ $dbr->middlename }}</td>
-                                        <td>{{ $dbr->lastname }}</td>
-                                        <td>{{ $dbr->type }}</td>
-                                        <td style="text-transform: capitalize;">{{ $dbr->status }}</td>
+                                        <td>{{ $dbr->firstname }} {{ $dbr->middlename }} {{ $dbr->lastname }}</td>
+                                        <td style="text-transform: capitalize;">{{ $dbr->type }}</td>
                                         <td>{{ $dbr->name }}</td>
-                                        <td>{{ $dbr->last_active }}</td>
+                                        <td>{{ $dbr->last_active ? Carbon\Carbon::parse($dbr->last_active)->format('F j, Y g:iA') : '' }}</td>
+                                        <td style="text-transform: capitalize;">{{ $dbr->status }}</td>
                                         <td>
                                             <div class="btn-group" role="group">
                                                 <button class="btn btn-primary btn-sm azu-edit" data-id="{{ $dbr->id }}" data-mdb-toggle="modal" data-mdb-target="#addeditmodal" data-toggle="popover"
@@ -237,13 +235,13 @@
     <script>
         $(document).ready(function() {
             $('#addbutton').on('click', function() {
-                $('#addeditmodalLabel').html('Adding New Branch');
-                $('#addeditframe').attr('src', '/settings_addbranch');
+                $('#addeditmodalLabel').html('Adding New Account');
+                $('#addeditframe').attr('src', '/accounts_add');
             });
             $('.azu-edit').on('click', function() {
                 let sid = $(this).data('id');
-                $('#addeditmodalLabel').html('Edit Branch');
-                $('#addeditframe').attr('src', '/settings_editbranch?id=' + sid);
+                $('#addeditmodalLabel').html('Edit Account');
+                $('#addeditframe').attr('src', '/accounts_edit?id=' + sid);
             })
             $('.azu-lock, .azu-unlock').on('click', function() {
                 let sid = $(this).data('id');
@@ -259,9 +257,9 @@
                     text2 = 'active';
                 }
 
-                $('#lockmodalLabel').html(`${text} Branch`);
-                $('#lockmodalbody').html(`Are you sure you want to make this branch ${text2}.`);
-                $('#lockbutton').attr('href', `/settings_lockunlockprocess?id=${sid}`);
+                $('#lockmodalLabel').html(`${text} Account`);
+                $('#lockmodalbody').html(`Are you sure you want to make this account ${text2}.`);
+                $('#lockbutton').attr('href', `/accounts_lockunlockprocess?id=${sid}`);
             })
         });
     </script>

@@ -18,6 +18,7 @@ use App\Http\Controllers\AccountsController;
 
 Route::get('/', [LoginController::class, 'loginScreen'])->name('loginScreen');
 Route::post('loginProcess', [LoginController::class, 'loginProcess'])->name('loginProcess');
+Route::get('/logoutProcess', [LoginController::class, 'logoutProcess'])->name('logoutProcess');
 
 Route::group(['middleware' => 'axuauth'], function(){
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -34,6 +35,11 @@ Route::group(['middleware' => 'axuauth'], function(){
 
     // Accounts
     Route::get('accounts', [AccountsController::class, 'accounts'])->name('accounts');
-
-
+    Route::get('accounts_add', [AccountsController::class, 'accounts_add'])->name('accounts_add');
+    Route::post('accounts_addprocess', [AccountsController::class, 'accounts_addprocess'])->name('accounts_addprocess');
+    Route::get('accounts_edit', [AccountsController::class, 'accounts_edit'])->name('accounts_edit');
+    Route::post('accounts_editprocess', [AccountsController::class, 'accounts_editprocess'])->name('accounts_editprocess');
+    Route::post('accounts_passprocess', [AccountsController::class, 'accounts_passprocess'])->name('accounts_passprocess');
+    Route::post('accounts_imageprocess', [AccountsController::class, 'accounts_imageprocess'])->name('accounts_imageprocess');
+    Route::get('accounts_lockunlockprocess', [AccountsController::class, 'accounts_lockunlockprocess'])->name('accounts_lockunlockprocess');
 });

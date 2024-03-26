@@ -17,7 +17,7 @@
 
     <ul class="side-menu">
         <li class="divider n1" data-text="home">HOME</li>
-        <li><a class="" href="dashboard"><i class="fa-solid fa-border-all icon"></i>
+        <li><a class="{{ $path == 'dashboard' ? 'active-selected' : '' }}" href="dashboard"><i class="fa-solid fa-border-all icon"></i>
                 <div class="sideMenuText">Dashboard</div>
             </a></li>
         <li class="divider n2" data-text="main">Main</li>

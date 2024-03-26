@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('address');
             $table->string('contact');
+            $table->string('photo')->default('blank.webp');
             $table->timestamps();
 
             $table->foreign('userid')->references('id')->on('useraccounts')->onDelete('cascade');

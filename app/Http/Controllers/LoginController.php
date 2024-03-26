@@ -63,7 +63,8 @@ class LoginController extends Controller
             $userdata->lastname, //8
             $userdata->address, //9
             $userdata->contact, //10
-            date('ymdHis') //11
+            $userdata->photo, //11
+            date('ymdHis') //12
         ];
 
         $userid = encrypt(implode( ',', $userkey,));
@@ -82,5 +83,10 @@ class LoginController extends Controller
         $goto = null;
         if($userdata->type == 'admin') $goto = 'dashboard';
         return redirect()->to($goto);
+    }
+
+    public function logoutProcess(Request $request){
+        $request->session()->flush();
+        return redirect('/?err=2');
     }
 }

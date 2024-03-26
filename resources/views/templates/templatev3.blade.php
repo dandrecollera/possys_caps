@@ -6,6 +6,12 @@
 
 @section('linkcss')
     <link href="{{ asset('css/azusidenavv2.css') }}?v=3" rel="stylesheet">
+
+    <style>
+        .dpcover {
+            object-fit: cover;
+        }
+    </style>
 @endsection
 
 
